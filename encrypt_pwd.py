@@ -23,7 +23,7 @@ with open(dir, mode='a') as csv_pwd_db:
     pwd = [ord(c) for c in pwd]
     for x in range(0, len(pwd)):
         # pwd[x] = pwd[x] ** 2 - pwd[x]
-        pwd[x] = (pwd[x] ** 3.141592653589793) / 111000
+        pwd[x] = (pwd[x] ** 3.141592653589793) / 111000 * (x + 1)
         print (pwd[x])
         # pwd[x] = pwd[x] / 3.141592653589793
         # pwd[x] = round(pwd[x])
