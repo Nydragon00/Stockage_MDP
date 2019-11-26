@@ -1,7 +1,5 @@
 import csv
 import os
-import math
-import sys
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 dir = dir_path + '\\password.csv'
