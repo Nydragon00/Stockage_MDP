@@ -1,8 +1,11 @@
 import csv
 import os
+import oui
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 dir = dir_path + '\\password.csv'
+
+print (oui.low())
 
 with open(dir, mode='r') as csv_pwd_db:
     db_read = csv_pwd_db.read()
