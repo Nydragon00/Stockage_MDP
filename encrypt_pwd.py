@@ -1,6 +1,7 @@
 import csv
 import os
 import interface
+import math
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 dir = dir_path + '\\password.csv'
@@ -25,6 +26,7 @@ with open(dir, mode='a') as csv_pwd_db:
     pwd = [ord(c) for c in pwd]
     for x in range(0, len(pwd)):
         # pwd[x] = pwd[x] ** 2 - pwd[x]
+        # pwd[x] = pwd[x] * ((x +1) + (16091998 * math.sqrt(26011934)) / 18)
         pwd[x] = (pwd[x] ** 3.141592653589793) / 111000 * (x + 1)
         print (pwd[x])
         # pwd[x] = pwd[x] / 3.141592653589793
