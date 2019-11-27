@@ -1,7 +1,7 @@
 import random
 import pyperclip
 from tkinter import *
-from tkinter.ttk import *
+from tkinter.ttk import * #sert à Combobox
 
 # Fonction pour calculer mot de passe
 def low():
@@ -49,6 +49,7 @@ def copy1():
 
 # Main fonction
 
+#OK
 # créer la fenètre
 fen = Tk()
 var = IntVar()
@@ -56,6 +57,7 @@ var1 = IntVar()
 fen.title('Genérateur de mot de passe')
 fen.geometry('500x500')
 
+#OK
 # créer label pour le champ d'entrée
 # generation mot de passe
 Random_password = Label(fen, text="Password")
@@ -63,6 +65,7 @@ Random_password.grid(row=0)
 entry = Entry(fen)
 entry.grid(row=0, column=1)
 
+#OK
 # créer label pour taille du mot de passe
 c_label = Label(fen, text="Length")
 c_label.grid(row=1)
@@ -72,18 +75,23 @@ c_label.grid(row=1)
 # qui va générer mot de passe
 copy_button = Button(fen, text="Copy", command=copy1)
 copy_button.grid(row=0, column=2)
+# OK
 generate_button = Button(fen, text="Generate", command=generate)
 generate_button.grid(row=0, column=3)
 
 # Radio Buttons pour décider :
 # Taille du mot de passe
 # Taille par défaut est medium
+#OK
 radio_low = Radiobutton(fen, text="Low", variable=var, value=1)
 radio_low.grid(row=1, column=2, sticky='E')
 radio_middle = Radiobutton(fen, text="Medium", variable=var, value=0)
 radio_middle.grid(row=1, column=3, sticky='E')
 radio_strong = Radiobutton(fen, text="Strong", variable=var, value=3)
 radio_strong.grid(row=1, column=4, sticky='E')
+
+
+
 combo = Combobox(fen, textvariable=var1)
 
 # Combo Box pour la taille du mot de passe
