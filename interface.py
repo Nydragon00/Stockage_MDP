@@ -1,9 +1,11 @@
 #Barre de menu !!!!!!!!!!
 
 import random
-import pyperclip
+import pyperclip # librairie pour accéder au presse papier
 from tkinter import *
-from tkinter.ttk import *
+from tkinter.ttk import * # librairie pour la Combobox
+from tkinter.messagebox import * # librairie pour menu bar
+import tkinter.filedialog
 
 
 # Fonction pour calculer mot de passe
@@ -57,12 +59,12 @@ def submit():
 # afficher la fenètre
 fen = Tk()
 fen.title('Genérateur de mot de passe')
-fen.geometry('500x500')
-fen.resizable(width = False, height = False)
+fen.geometry('400x400')
+fen.resizable(width=False, height=False)
 var = IntVar()
 var1 = IntVar()
 
-# Frame permet de ranger des éléments en délimittant une fenetre
+# Frame permet de ranger des éléments en délimittant une fenètre
 frame = Frame(fen)
 frame.pack()
 frame.columnconfigure(0, weight=0)
@@ -89,53 +91,55 @@ bottomframe.pack(side = BOTTOM)
 
 #Label pour le titre
 TxtTitle = Label(fen, text="Title :")
-TxtTitle.place(x=130, y=30, width=200, height=50)
+TxtTitle.place(x=90, y=30, width=200, height=50)
 CTitle = Entry(fen)
-CTitle.place(x=270, y=40, width=125, height=25)
+CTitle.place(x=180, y=40, width=125, height=25)
 
 #Label pour le nom
 TxtName = Label(fen, text="User Name :")
-TxtName.place(x=130, y=80, width=200, height=50)
+TxtName.place(x=90, y=80, width=200, height=50)
 CName = Entry(fen)
-CName.place(x=270, y=90, width=125, height=25)
+CName.place(x=180, y=90, width=125, height=25)
 
 
 # créer label pour le champ d'entrée
 # generation mot de passe
 Random_password = Label(fen, text="Password :")
-Random_password.place(x=130, y=140, width=200, height=50)
+Random_password.place(x=90, y=140, width=200, height=50)
 entry = Entry(fen)
-entry.place(x=270, y=150, width=125, height=25)
+entry.place(x=180, y=150, width=125, height=25)
 
 
 # créer label pour taille du mot de passe
 c_label = Label(fen, text="Length :")
-c_label.place(x=160, y=190, width=125, height=25)
+c_label.place(x=90, y=190, width=125, height=25)
 
 
 # # créer bouton copie qui va copier
 # # mot de passe dans presse papier et
 # qui va générer mot de passe
 copy_button = Button(fen, text="Copy", command=copy1)
-copy_button.place(x=400, y=190, width=75, height=25)
+copy_button.place(x=310, y=190, width=75, height=25)
 generate_button = Button(fen, text="Generate", command=generate)
-generate_button.place(x=400, y=150, width=75, height=25)
+generate_button.place(x=310, y=150, width=75, height=25)
+
 
 # Radio Buttons pour décider :
 # Taille du mot de passe
 # Taille par défaut est medium
 radio_low = Radiobutton(fen, text="Low", variable=var, value=1)
-radio_low.place(x=220, y=240, width=75, height=25)
+radio_low.place(x=130, y=240, width=75, height=25)
 radio_middle = Radiobutton(fen, text="Medium", variable=var, value=0)
-radio_middle.place(x=280, y=240, width=75, height=25)
+radio_middle.place(x=190, y=240, width=75, height=25)
 radio_strong = Radiobutton(fen, text="Strong", variable=var, value=3)
-radio_strong.place(x=360, y=240, width=75, height=25)
+radio_strong.place(x=270, y=240, width=75, height=25)
 
 #label pour l'URL
 TxtURL= Label(fen, text="URL DU SITE :")
-TxtURL.place(x=130, y=300, width=200, height=50)
+TxtURL.place(x=90, y=300, width=200, height=50)
 CURL = Entry(fen)
-CURL.place(x=270, y=310, width=125, height=25)
+CURL.place(x=190, y=310, width=125, height=25)
+
 
 #afficher la liste déroulante
 combo = Combobox(fen, textvariable=var1)
@@ -146,7 +150,49 @@ combo['values'] = (8, 9, 10, 11, 12, 13, 14, 15, 16,
                    26, 27, 28, 29, 30, 31, 32)
 combo.current(0)
 combo.bind('<<ComboboxSelected>>')
-combo.place(x=270, y=190, width=125, height=25)
+combo.place(x=180, y=190, width=125, height=25)
+
+
+# ----------------------------------------------------------
+# MENU BAR
+
+def alert():
+    showinfo("alerte", "Bravo!")
+
+menubar = Menu(fen)
+
+menu1 = Menu(menubar, tearoff=0)
+menu1.add_command(label="Nouvelle base de données", command=alert)
+menu1.add_command(label="Ouvrir une base de données", command=alert)
+menu1.add_command(label="Bases de données récentes", command=alert)
+menu1.add_command(label="Enregistrer la base de données", command=alert)
+menu1.add_command(label="Enregistrer la base de données sous..", command=alert)
+menu1.add_command(label="Fermer la base de données", command=alert)
+menu1.add_separator()
+menu1.add_command(label="Fermer la base de données", command=alert)
+menu1.add_separator()
+menu1.add_command(label="Quitter", command=fen.quit)
+menubar.add_cascade(label="Base de données", menu=menu1)
+
+menu2 = Menu(menubar, tearoff=0)
+menu2.add_command(label="Nouvelle entrée", command=alert)
+menu2.add_command(label="Modifier l'entrée", command=alert)
+menu2.add_command(label="Clôner l'entrée", command=alert)
+menu2.add_command(label="Supprimer l'entrée", command=alert)
+menu2.add_separator()
+menu2.add_command(label="Copier le nom de l'utilisateur", command=alert)
+menu2.add_command(label="Copier le mot de passe", command=alert)
+menu2.add_command(label="Ouvrir une URL", command=alert)
+menubar.add_cascade(label="Entrée", menu=menu2)
+
+menu3 = Menu(menubar, tearoff=0)
+menu3.add_command(label="A propos", command=alert)
+menubar.add_cascade(label="Aide", menu=menu3)
+
+# Lancer la barre de menu
+fen.config(menu=menubar)
+
+# --------------------------------------------------------------
 
 # submit les valeurs
 submit_button = Button(fen, text="Submit", command=submit)
