@@ -1,6 +1,6 @@
-#!/usr/bin/python
+    #!/usr/bin/python
 
 # link files
 
-import interface
+# import interface
 import encrypt_pwd

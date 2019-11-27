@@ -49,12 +49,16 @@ def copy1():
     random_password = entry.get()
     pyperclip.copy(random_password)
 
+def submit():
+    print (entry.get())
+
 # MAIN FONCTION
 
 # afficher la fenètre
 fen = Tk()
 fen.title('Genérateur de mot de passe')
 fen.geometry('500x500')
+fen.resizable(width = False, height = False)
 var = IntVar()
 var1 = IntVar()
 
@@ -117,7 +121,6 @@ copy_button.place(x=400, y=190, width=75, height=25)
 generate_button = Button(fen, text="Generate", command=generate)
 generate_button.place(x=400, y=150, width=75, height=25)
 
-
 # Radio Buttons pour décider :
 # Taille du mot de passe
 # Taille par défaut est medium
@@ -134,17 +137,20 @@ TxtURL.place(x=130, y=300, width=200, height=50)
 CURL = Entry(fen)
 CURL.place(x=270, y=310, width=125, height=25)
 
-
 #afficher la liste déroulante
 combo = Combobox(fen, textvariable=var1)
 
 # Combo Box pour la taille du mot de passe
 combo['values'] = (8, 9, 10, 11, 12, 13, 14, 15, 16,
                    17, 18, 19, 20, 21, 22, 23, 24, 25,
-                   26, 27, 28, 29, 30, 31, 32, "Length")
+                   26, 27, 28, 29, 30, 31, 32)
 combo.current(0)
 combo.bind('<<ComboboxSelected>>')
 combo.place(x=270, y=190, width=125, height=25)
+
+# submit les valeurs
+submit_button = Button(fen, text="Submit", command=submit)
+submit_button.place(x=270, y=350, width=75, height=25)
 
 # Lancer tout le bordel
 fen.mainloop()
