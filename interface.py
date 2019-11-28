@@ -5,6 +5,7 @@ from tkinter.ttk import * # librairie pour la Combobox
 from tkinter.messagebox import * # librairie pour menu bar
 import tkinter.filedialog
 from tkinter import messagebox
+import encrypt_pwd
 
 
 # Fonction pour calculer mot de passe

@@ -1,6 +1,5 @@
 import csv
 import os
-import interface
 import math
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
