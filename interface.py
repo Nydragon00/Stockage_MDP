@@ -4,6 +4,7 @@ import random
 import pyperclip
 from tkinter import *
 from tkinter.ttk import *
+import encrypt_pwd
 
 
 # Fonction pour calculer mot de passe
@@ -50,7 +51,7 @@ def copy1():
     pyperclip.copy(random_password)
 
 def submit():
-    print (entry.get())
+    encrypt_pwd.encrypt(CTitle.get(), CName.get(), entry.get(), CURL.get())
 
 # MAIN FONCTION
 

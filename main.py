@@ -2,5 +2,4 @@
 
 # link files
 
-# import interface
-import encrypt_pwd
+import interface
