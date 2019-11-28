@@ -1,11 +1,10 @@
-#Barre de menu !!!!!!!!!!
-
 import random
 import pyperclip # librairie pour accéder au presse papier
 from tkinter import *
 from tkinter.ttk import * # librairie pour la Combobox
 from tkinter.messagebox import * # librairie pour menu bar
 import tkinter.filedialog
+from tkinter import messagebox
 
 
 # Fonction pour calculer mot de passe
@@ -115,8 +114,8 @@ c_label = Label(fen, text="Length :")
 c_label.place(x=90, y=190, width=125, height=25)
 
 
-# # créer bouton copie qui va copier
-# # mot de passe dans presse papier et
+# créer bouton copie qui va copier
+# mot de passe dans presse papier et
 # qui va générer mot de passe
 copy_button = Button(fen, text="Copy", command=copy1)
 copy_button.place(x=310, y=190, width=75, height=25)
@@ -159,6 +158,10 @@ combo.place(x=180, y=190, width=125, height=25)
 def alert():
     showinfo("alerte", "Bravo!")
 
+def a_propos():
+    mon_message = messagebox.showinfo("Vive les chats :", "Cette merveilleuse application a été développée par Gwénaëlle, Nicolas et Laurine !")
+
+
 menubar = Menu(fen)
 
 menu1 = Menu(menubar, tearoff=0)
@@ -169,7 +172,11 @@ menu1.add_command(label="Enregistrer la base de données", command=alert)
 menu1.add_command(label="Enregistrer la base de données sous..", command=alert)
 menu1.add_command(label="Fermer la base de données", command=alert)
 menu1.add_separator()
-menu1.add_command(label="Fermer la base de données", command=alert)
+menu1.add_command(label="Changer la clé maître", command=alert)
+menu1.insert_command(index=8, label="Importer", command=alert)
+menu1.insert_cascade(index=9, label="Fichier csv", command=alert)
+#menu1.insert_cascade(label="base de données de notre appli", command=alert)
+menu1.add_command(label="Exporter", command=alert)
 menu1.add_separator()
 menu1.add_command(label="Quitter", command=fen.quit)
 menubar.add_cascade(label="Base de données", menu=menu1)
@@ -186,8 +193,8 @@ menu2.add_command(label="Ouvrir une URL", command=alert)
 menubar.add_cascade(label="Entrée", menu=menu2)
 
 menu3 = Menu(menubar, tearoff=0)
-menu3.add_command(label="A propos", command=alert)
-menubar.add_cascade(label="Aide", menu=menu3)
+menu3.add_command(label="A propos", command=a_propos)
+menubar.add_cascade(label="Aide", menu=menu3, command=alert)
 
 # Lancer la barre de menu
 fen.config(menu=menubar)
