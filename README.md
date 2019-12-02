@@ -1,5 +1,5 @@
 # StockageMotDePasse
-Petit générateur de mot de passe, par Gwénnaelle, Nicolas, Laurine.
+Petit générateur de mot de passe, par Gwénaëlle, Nicolas, Laurine.
 
 Les bibliothèques à télécharger sont : 
 - pyperclip
