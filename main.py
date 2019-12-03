@@ -53,7 +53,7 @@ def copy1():
     pyperclip.copy(random_password)
 
 def submit():
-    encrypt_pwd.encrypt(titre.get(), CName.get(), entry.get(), CURL.get())
+    encrypt_pwd.encrypt(titre.get(), nom.get(), entry.get(), CURL.get())
 
 # MAIN FONCTION
 
@@ -95,12 +95,7 @@ def ajoute_entree(fenetre, text, y):
     return CTitle 
 
 titre = ajoute_entree(fen, "title :", y=30)
-
-#Label pour le nom
-TxtName = Label(fen, text="User Name :")
-TxtName.place(x=90, y=80, width=200, height=50)
-CName = Entry(fen)
-CName.place(x=180, y=90, width=125, height=25)
+nom = ajoute_entree(fen, "username :", y=80)
 
 
 # créer label pour le champ d'entrée
