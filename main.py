@@ -87,14 +87,14 @@ bottomframe.pack(side = BOTTOM)
 # blackbutton.config(command=fen.destroy)
 # blackbutton.pack(side = BOTTOM)
 
-def ajoute_entree():
-    TxtTitle = Label(fen, text="Title :")
-    TxtTitle.place(x=90, y=30, width=200, height=50)
-    CTitle = Entry(fen)
-    CTitle.place(x=180, y=40, width=125, height=25)
+def ajoute_entree(fenetre, text, y):
+    TxtTitle = Label(fenetre, text=text)
+    TxtTitle.place(x=90, y=y, width=200, height=50)
+    CTitle = Entry(fenetre)
+    CTitle.place(x=180, y=y+10, width=125, height=25)
     return CTitle 
 
-titre = ajoute_entree()
+titre = ajoute_entree(fen, "title :", y=30)
 
 #Label pour le nom
 TxtName = Label(fen, text="User Name :")
