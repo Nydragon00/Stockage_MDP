@@ -53,7 +53,7 @@ def copy1():
     pyperclip.copy(random_password)
 
 def submit():
-    encrypt_pwd.encrypt(CTitle.get(), CName.get(), entry.get(), CURL.get())
+    encrypt_pwd.encrypt(titre.get(), CName.get(), entry.get(), CURL.get())
 
 # MAIN FONCTION
 
@@ -87,14 +87,14 @@ bottomframe.pack(side = BOTTOM)
 # blackbutton.config(command=fen.destroy)
 # blackbutton.pack(side = BOTTOM)
 
+def ajoute_entree():
+    TxtTitle = Label(fen, text="Title :")
+    TxtTitle.place(x=90, y=30, width=200, height=50)
+    CTitle = Entry(fen)
+    CTitle.place(x=180, y=40, width=125, height=25)
+    return CTitle 
 
-#Champs d'écriture
-
-#Label pour le titre
-TxtTitle = Label(fen, text="Title :")
-TxtTitle.place(x=90, y=30, width=200, height=50)
-CTitle = Entry(fen)
-CTitle.place(x=180, y=40, width=125, height=25)
+titre = ajoute_entree()
 
 #Label pour le nom
 TxtName = Label(fen, text="User Name :")
