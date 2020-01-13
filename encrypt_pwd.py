@@ -3,7 +3,7 @@ import os
 import math
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
-dir = dir_path + '\\password.csv'
+dir = dir_path + '/password.csv'
 
 
 def encrypt(tag, user_name, pwd, CURL):
