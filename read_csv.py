@@ -3,12 +3,12 @@ import os
 import math
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
-dir = dir_path + '\\password.csv'
+dir = dir_path + '/password.csv'
 
 
 def decrypt():
- with open(dir, mode='r') as csv_pwd_db:
-  reader = csv.reader(csv_pwd_db)
+ with open(dir, mode='r') as file_descriptor:
+  reader = csv.reader(file_descriptor)
   for x in reader:
    element = x[2].split(",")
    x = 0
